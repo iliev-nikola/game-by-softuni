@@ -58,6 +58,13 @@
         function gameAction() {
             const wizard = document.querySelector('.wizard');
             scene.score += 0.3;
+
+            // Modify fireballs positions
+            let fireballs = document.querySelectorAll('.fireball');
+            fireballs.forEach(f => {
+                f.x += game.speed;
+                f.style.left = f.x + 'px';
+            })
             // Apply gravity
             let isInAir = player.y + player.height < gameArea.offsetHeight;
             if (isInAir) {
@@ -83,6 +90,8 @@
 
             if (keys.Space) {
                 wizard.classList.add('wizard-fire');
+            // Add fireball
+                addFireBall(player);
             } else {
                 wizard.classList.remove('wizard-fire');
             }
@@ -94,6 +103,15 @@
             gamePoints.textContent = Math.floor(scene.score);
 
             window.requestAnimationFrame(gameAction);
+        }
+
+        function addFireBall(player) {
+            const fireball = document.createElement('div');
+            fireball.classList.add('fireball');
+            fireball.style.top = (player.y + player.height / 3 - 5) + 'px';
+            fireball.x = (player.x + player.width);
+            fireball.style.left =  fireball.x + 'px';
+            gameArea.appendChild(fireball);
         }
 
         function onKeyDown(e) {

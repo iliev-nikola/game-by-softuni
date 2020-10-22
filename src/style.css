@@ -43,3 +43,11 @@ body {
     background-image: url(./images/wizard-fire.png);
     background-size: cover;
 }
+
+.fireball {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url(./images/fire-ball.png);
+    background-size: cover;
+}
