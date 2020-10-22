@@ -34,14 +34,16 @@
         };
 
         const scene = {
-            score: 0
+            score: 0,
+            lastCloudSpawn: 0
         }
 
         const game = {
             speed: 2,
             movingMultiplier: 4,
             fireballMultiplier: 5,
-            fireInterval: 1000
+            fireInterval: 1000,
+            cloudSpawnInterval: 5000
         };
 
         function onGameStart() {
@@ -62,8 +64,29 @@
             const wizard = document.querySelector('.wizard');
             scene.score += 0.3;
 
+            // Add clouds
+            if (timestamp - scene.lastCloudSpawn > game.cloudSpawnInterval) {
+                const cloud = document.createElement('div');
+                cloud.classList.add('cloud');
+                cloud.x = gameArea.offsetWidth - 200;
+                cloud.style.left = cloud.x + 'px';
+                cloud.style.top = '100px';
+                gameArea.appendChild(cloud);
+                scene.lastCloudSpawn = timestamp;
+            }
+
+            // Modify cloud positions
+            const clouds = document.querySelectorAll('.cloud');
+            clouds.forEach(c => {
+                c.x -= game.speed;
+                c.style.left = c.x + 'px';
+                if (c.x + c.offsetWidth <= 0) {
+                    c.parentElement.removeChild(c);
+                }
+            });
+
             // Modify fireballs positions
-            let fireballs = document.querySelectorAll('.fireball');
+            const fireballs = document.querySelectorAll('.fireball');
             fireballs.forEach(f => {
                 f.x += game.speed * game.fireballMultiplier;
                 f.style.left = f.x + 'px';
@@ -71,7 +94,8 @@
                 if (f.x + f.offsetWidth> gameArea.offsetWidth) {
                     f.parentElement.removeChild(f);
                 }
-            })
+            });
+
             // Apply gravity
             let isInAir = player.y + player.height < gameArea.offsetHeight;
             if (isInAir) {
