@@ -64,6 +64,10 @@
             fireballs.forEach(f => {
                 f.x += game.speed;
                 f.style.left = f.x + 'px';
+
+                if (f.x + f.offsetWidth> gameArea.offsetWidth) {
+                    f.parentElement.removeChild(f);
+                }
             })
             // Apply gravity
             let isInAir = player.y + player.height < gameArea.offsetHeight;
