@@ -32,6 +32,7 @@ body {
 }
 
 .wizard {
+    z-index: 100;
     position: absolute;
     width: 82px;
     height: 100px;
@@ -57,5 +58,13 @@ body {
     width: 200px;
     height: 200px;
     background-image: url(./images/cloud.png);
+    background-size: cover;
+}
+
+.bug {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-image: url(./images/bug.png);
     background-size: cover;
 }
