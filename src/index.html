@@ -46,7 +46,8 @@
             fireballMultiplier: 5,
             fireInterval: 1000,
             cloudSpawnInterval: 3000,
-            bugSpawnInterval: 1000
+            bugSpawnInterval: 1000,
+            bugKillBonus: 100
         };
 
         function onGameStart() {
@@ -156,7 +157,16 @@
                 if (isCollision(wizard, b)) {
                     gameOverAction();
                 }
+
+                fireballs.forEach(f => {
+                    if (isCollision(f, b)) {
+                        f.remove()
+                        b.remove()
+                        scene.score += game.bugKillBonus;
+                    }
+                })
             });
+
 
             // Apply movement
             wizard.style.left = player.x + 'px';
