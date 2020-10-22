@@ -27,7 +27,7 @@
         const keys = {};
         const player = {
             x: 150,
-            y: 300,
+            y: 150,
             width: 0,
             height: 0
         };
@@ -79,6 +79,12 @@
 
             if (keys.ArrowRight && player.x + player.width < gameArea.offsetWidth) {
                 player.x += game.speed * game.movingMultiplier; 
+            }
+
+            if (keys.Space) {
+                wizard.classList.add('wizard-fire');
+            } else {
+                wizard.classList.remove('wizard-fire');
             }
 
             wizard.style.left = player.x + 'px';
