@@ -7,14 +7,22 @@
 </head>
 <body>
     <div class="game-section">
-        <div class="score">1500 points</div>
+        <div class="game-score">1500 points</div>
         <div class="game-start">Press to Play!</div>
         <div class="game-area"></div>
         <div class="game-over"></div>
     </div>
 
     <script>
-        console.log('hello world')
+        const gameStart = document.querySelector('.game-start');
+        const gameArea = document.querySelector('.game-area');
+        const gameOver = document.querySelector('.game-over');
+        const score = document.querySelector('.game-score');
+        gameStart.addEventListener('click', onGameStart);
+
+        function onGameStart() {
+            gameStart.classList.add('hide');
+        }
     </script>
 </body>
 </html>
