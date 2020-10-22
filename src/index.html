@@ -36,7 +36,8 @@
         const scene = {
             score: 0,
             lastCloudSpawn: 0,
-            lastBugSpawn: 0
+            lastBugSpawn: 0,
+            isActiveGame: true
         }
 
         const game = {
@@ -150,13 +151,34 @@
                 wizard.classList.remove('wizard-fire');
             }
 
+            // Collision detection
+            bugs.forEach(b => {
+                if (isCollision(wizard, b)) {
+                    gameOverAction();
+                }
+            });
+
+            // Apply movement
             wizard.style.left = player.x + 'px';
             wizard.style.top = player.y + 'px';
             
             // Apply score
             gamePoints.textContent = Math.floor(scene.score);
 
-            window.requestAnimationFrame(gameAction);
+            if (scene.isActiveGame) {
+                window.requestAnimationFrame(gameAction);
+            }
+        }
+
+        function gameOverAction() {
+            scene.isActiveGame = false;
+        }
+
+        function isCollision(firstElement, secondElement) {
+            const firstRect = firstElement.getBoundingClientRect();
+            const secondRect = secondElement.getBoundingClientRect();
+
+            return !(firstRect.top > secondRect.bottom || firstRect.bottom < secondRect.top || firstRect.right < secondRect.left || firstRect.left > secondRect.right);
         }
 
         function addFireBall(player) {
