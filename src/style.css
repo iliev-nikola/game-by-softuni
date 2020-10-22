@@ -30,3 +30,11 @@ body {
     color: white;
     text-align: center;
 }
+
+.wizard {
+    position: absolute;
+    width: 82px;
+    height: 100px;
+    background-image: url(./images/wizard.png);
+    background-size: cover;
+}
