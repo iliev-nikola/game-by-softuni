@@ -10,7 +10,7 @@
         <div class="game-score"><span class="points">0</span> points</div>
         <div class="game-start">Press to Play!</div>
         <div class="game-area"></div>
-        <div class="game-over"></div>
+        <div class="game-over hide">Game Over :(</div>
     </div>
 
     <script>
@@ -172,6 +172,7 @@
 
         function gameOverAction() {
             scene.isActiveGame = false;
+            gameOver.classList.remove('hide');
         }
 
         function isCollision(firstElement, secondElement) {
