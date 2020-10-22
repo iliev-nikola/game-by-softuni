@@ -23,21 +23,46 @@
         document.addEventListener('keyup', onKeyUp);
 
         const keys = {};
+        const player = {
+            x: 150,
+            y: 300
+        };
+        const game = {
+            speed: 2
+        };
 
         function onGameStart() {
             gameStart.classList.add('hide');
 
             const wizard = document.createElement('div');
             wizard.classList.add('wizard');
-            wizard.style.top = '200px';
-            wizard.style.left = '300px';
+            wizard.style.top = player.y + 'px';
+            wizard.style.left = player.x + 'px';
             gameArea.appendChild(wizard);
 
             window.requestAnimationFrame(gameAction);
         }
 
         function gameAction() {
+            const wizard = document.querySelector('.wizard');
             
+            if (keys.ArrowUp) {
+                player.y -= game.speed; 
+                wizard.style.top = player.y + 'px';
+            }
+            
+            if (keys.ArrowDown) {
+
+            }
+
+            if (keys.ArrowLeft) {
+
+            }
+
+            if (keys.ArrowRight) {
+
+            }
+
             window.requestAnimationFrame(gameAction);
         }
 
