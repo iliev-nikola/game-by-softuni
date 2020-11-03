@@ -17,18 +17,72 @@ body {
 
 .game-start {
     position: absolute;
-    width: 10%;
-    background-color: greenyellow;
-    z-index: 1;
-    top: 100px;
-    left: 43%;
-    text-align: center;
-    padding: 30px;
-    border-radius: 100px;
-    font-size: 20px;
-    border-style: solid;
-    border-color: black;
+    display: inline-flex;
+    left: 30%;
+    top: 220px;
+}
+
+.game-start-wizard {
+    position: relative;
+    background-image: url('./images/wizard.png');
+    background-size: cover;
+    width: 82px;
+    height: 100px;
+    z-index: 100;
     cursor: pointer;
+}
+
+.game-start-kolyo {
+    position: relative;
+    background-image: url('./images/kolyo.png');
+    background-size: cover;
+    width: 82px;
+    height: 105px;
+    z-index: 100;
+    left: 7%;
+    cursor: pointer;
+}
+
+.game-start-viki {
+    position: relative;
+    background-image: url('./images/viki.png');
+    background-size: cover;
+    width: 82px;
+    height: 110px;
+    z-index: 100;
+    left: 14%;
+    cursor: pointer;
+}
+
+.game-start-tina {
+    position: relative;
+    background-image: url('./images/Untitled.png');
+    background-size: cover;
+    width: 82px;
+    height: 105px;
+    z-index: 100;
+    left: 21%;
+    cursor: pointer;
+}
+
+.game-start-pepi {
+    position: relative;
+    background-image: url('./images/pepi.png');
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    z-index: 100;
+    left: 28%;
+    cursor: pointer;
+}
+
+.choose-hero {
+    position: absolute;
+    width: 30%;
+    left: 36%;
+    top: 10%;
+    z-index: 1;
+    font-size: 40px;
 }
 
 .game-score {
@@ -60,7 +114,7 @@ body {
     color: white;
     z-index: 1;
     top: 100px;
-    left: 43%;
+    left: 40%;
     text-align: center;
     padding: 30px;
     border-radius: 100px;
@@ -75,6 +129,17 @@ body {
     width: 82px;
     height: 100px;
     background-image: url(./images/wizard.png);
+    background-size: cover;
+    rotate: inherit 50;
+    cursor: none;
+}
+
+.kolyo {
+    z-index: 100;
+    position: absolute;
+    width: 82px;
+    height: 100px;
+    background-image: url(./images/kolyo.png);
     background-size: cover;
     rotate: inherit 50;
     cursor: none;

@@ -1,4 +1,10 @@
 const gameStart = document.querySelector('.game-start');
+const wizardHero = document.querySelector('.game-start-wizard');
+const kolyoHero = document.querySelector('.game-start-kolyo');
+const vikiHero = document.querySelector('.game-start-viki');
+const tinaHero = document.querySelector('.game-start-tina');
+const pepiHero = document.querySelector('.game-start-pepi');
+
 const gameArea = document.querySelector('.game-area');
 const gameOver = document.querySelector('.game-over');
 const gameScore = document.querySelector('.game-score');
@@ -183,16 +189,17 @@ function onKeyUp(e) {
     keys[e.code] = false;
 }
 
-function onGameStart() {
-    gameStart.classList.add('hide');
+function onGameStart(e) {
+    gameStart.style.display = 'none';
+    document.querySelector('.choose-hero').classList.add('hide');
 
-    const wizard = document.createElement('div');
-    wizard.classList.add('wizard');
-    wizard.style.top = player.y + 'px';
-    wizard.style.left = player.x + 'px';
-    gameArea.appendChild(wizard);
-    player.width = wizard.offsetWidth;
-    player.height = wizard.offsetHeight;
+    const hero = document.createElement('div');
+    hero.classList.add('wizard');
+    hero.style.top = player.y + 'px';
+    hero.style.left = player.x + 'px';
+    gameArea.appendChild(hero);
+    player.width = hero.offsetWidth;
+    player.height = hero.offsetHeight;
 
     window.requestAnimationFrame(gameAction);
 }
