@@ -227,6 +227,15 @@ body {
     cursor: none;
 }
 
+.snake {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-image: url(./images/snake.png);
+    background-size: cover;
+    cursor: none;
+}
+
 .bug {
     position: absolute;
     width: 60px;

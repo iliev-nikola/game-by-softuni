@@ -1,5 +1,5 @@
+// TODO: kolyo's snakes doesn't appear. Only Tina have clouds
 const gameStart = document.querySelector('.game-start');
-
 const gameArea = document.querySelector('.game-area');
 const gameOver = document.querySelector('.game-over');
 const gameScore = document.querySelector('.game-score');
@@ -38,7 +38,7 @@ const game = {
 
 const heroes = {
     'wizard': 'cloud',
-    'kolyo': 'snakes',
+    'kolyo': 'snake',
     'viki': 'frogs',
     'tina': 'cake',
     'pepi': 'pill'
@@ -49,6 +49,7 @@ let currentHero = '';
 function gameAction(timestamp) {
     const wizard = document.querySelector(`.${currentHero}`);
 
+    // score counter
     scene.score += 0.3;
 
     // Add bugs
