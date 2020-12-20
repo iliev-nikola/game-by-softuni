@@ -1,14 +1,10 @@
 const gameStart = document.querySelector('.game-start');
-const wizardHero = document.querySelector('.game-start-wizard');
-const kolyoHero = document.querySelector('.game-start-kolyo');
-const vikiHero = document.querySelector('.game-start-viki');
-const tinaHero = document.querySelector('.game-start-tina');
-const pepiHero = document.querySelector('.game-start-pepi');
 
 const gameArea = document.querySelector('.game-area');
 const gameOver = document.querySelector('.game-over');
 const gameScore = document.querySelector('.game-score');
 const gamePoints = gameScore.querySelector('.points');
+const playAgain = document.querySelector('.play-again');
 
 gameStart.addEventListener('click', onGameStart);
 document.addEventListener('keydown', onKeyDown);
@@ -40,10 +36,19 @@ const game = {
     bugKillBonus: 100
 };
 
+const heroes = {
+    'wizard': 'cloud',
+    'kolyo': 'snakes',
+    'viki': 'frogs',
+    'tina': 'cake',
+    'pepi': 'pill'
+}
 
+let currentHero = '';
 
 function gameAction(timestamp) {
-    const wizard = document.querySelector('.wizard');
+    const wizard = document.querySelector(`.${currentHero}`);
+
     scene.score += 0.3;
 
     // Add bugs
@@ -70,7 +75,7 @@ function gameAction(timestamp) {
     // Add clouds
     if (timestamp - scene.lastCloudSpawn > game.cloudSpawnInterval + 20000 * Math.random()) {
         const cloud = document.createElement('div');
-        cloud.classList.add('cloud');
+        cloud.classList.add(heroes[currentHero]);
         cloud.x = gameArea.offsetWidth - 200;
         cloud.style.left = cloud.x + 'px';
         cloud.style.top = (gameArea.offsetHeight - 200) * Math.random() + 'px';
@@ -79,7 +84,7 @@ function gameAction(timestamp) {
     }
 
     // Modify cloud positions
-    const clouds = document.querySelectorAll('.cloud');
+    const clouds = document.querySelectorAll(`.${heroes[currentHero]}`);
     clouds.forEach(c => {
         c.x -= game.speed;
         c.style.left = c.x + 'px';
@@ -123,12 +128,14 @@ function gameAction(timestamp) {
         player.x += game.speed * game.movingMultiplier;
     }
     // space
-    if (keys.Space && timestamp - player.lastTimeFiredFireball > game.fireInterval) {
-        wizard.classList.add('wizard-fire');
-        addFireBall(player);
-        player.lastTimeFiredFireball = timestamp;
-    } else {
-        wizard.classList.remove('wizard-fire');
+    if (currentHero === 'wizard') {
+        if (keys.Space && timestamp - player.lastTimeFiredFireball > game.fireInterval) {
+            wizard.classList.add('wizard-fire');
+            addFireBall(player);
+            player.lastTimeFiredFireball = timestamp;
+        } else {
+            wizard.classList.remove('wizard-fire');
+        }
     }
 
     // Collision detection
@@ -139,8 +146,8 @@ function gameAction(timestamp) {
 
         fireballs.forEach(f => {
             if (isCollision(f, b)) {
-                f.remove()
-                b.remove()
+                f.remove();
+                b.remove();
                 scene.score += game.bugKillBonus;
             }
         })
@@ -163,13 +170,18 @@ function gameAction(timestamp) {
 function gameOverAction() {
     scene.isActiveGame = false;
     gameOver.classList.remove('hide');
+    playAgain.classList.remove('hide');
+    playAgain.addEventListener('click', function (e) {
+        e.preventDefault();
+        location.reload();
+    });
 }
 
 function isCollision(firstElement, secondElement) {
     const firstRect = firstElement.getBoundingClientRect();
     const secondRect = secondElement.getBoundingClientRect();
 
-    return !(firstRect.top > secondRect.bottom || firstRect.bottom < secondRect.top || firstRect.right < secondRect.left || firstRect.left * 0.9 > secondRect.right);
+    return !(firstRect.top > secondRect.bottom || firstRect.bottom < secondRect.top || firstRect.right < secondRect.left || firstRect.left * 1.1 > secondRect.right);
 }
 
 function addFireBall(player) {
@@ -190,11 +202,11 @@ function onKeyUp(e) {
 }
 
 function onGameStart(e) {
+    currentHero = e.target.title;
     gameStart.style.display = 'none';
     document.querySelector('.choose-hero').classList.add('hide');
-
     const hero = document.createElement('div');
-    hero.classList.add('wizard');
+    hero.classList.add(currentHero);
     hero.style.top = player.y + 'px';
     hero.style.left = player.x + 'px';
     gameArea.appendChild(hero);
