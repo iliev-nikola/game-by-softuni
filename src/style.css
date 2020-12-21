@@ -141,6 +141,7 @@ body {
     border-color: black;
 }
 
+/* heroes */
 .wizard {
     z-index: 100;
     position: absolute;
@@ -188,7 +189,7 @@ body {
 .pepi {
     z-index: 100;
     position: absolute;
-    width: 82px;
+    width: 100px;
     height: 100px;
     background-image: url(./images/pepi.png);
     background-size: cover;
@@ -201,6 +202,7 @@ body {
     background-size: cover;
 }
 
+/* fireballs */
 .fireball {
     position: absolute;
     width: 40px;
@@ -209,6 +211,31 @@ body {
     background-size: cover;
 }
 
+.stone {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url(./images/stone.png);
+    background-size: cover;
+}
+
+.kiwi {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url(./images/kiwi.png);
+    background-size: cover;
+}
+
+.cup {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url(./images/cup.png);
+    background-size: cover;
+}
+
+/* clouds */
 .cloud {
     position: absolute;
     width: 200px;
@@ -227,20 +254,75 @@ body {
     cursor: none;
 }
 
-.snake {
+.mountains {
     position: absolute;
-    width: 200px;
+    width: 290px;
     height: 200px;
-    background-image: url(./images/snake.png);
+    background-image: url(./images/mountain-peak-logo-md.png);
     background-size: cover;
     cursor: none;
 }
 
+.cloud-viki {
+    position: absolute;
+    width: 290px;
+    height: 200px;
+    background-image: url(./images/cloud-viki.png);
+    background-size: cover;
+    cursor: none;
+}
+
+.jagermeister {
+    position: absolute;
+    width: 290px;
+    height: 290px;
+    background-image: url(./images/jagermeister.png);
+    background-size: cover;
+    cursor: none;
+}
+
+/* bugs */
 .bug {
     position: absolute;
     width: 60px;
     height: 60px;
     background-image: url(./images/bug.png);
+    background-size: cover;
+    cursor: none;
+}
+
+.snake {
+    position: absolute;
+    width: 170px;
+    height: 40px;
+    background-image: url(./images/snake.png);
+    background-size: cover;
+    cursor: none;
+}
+
+.frog {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-image: url(./images/frog.png);
+    background-size: cover;
+    cursor: none;
+}
+
+.burger {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-image: url(./images/burger.png);
+    background-size: cover;
+    cursor: none;
+}
+
+.pill {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background-image: url(./images/pill.png);
     background-size: cover;
     cursor: none;
 }
