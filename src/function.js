@@ -39,28 +39,33 @@ const game = {
 const heroes = {
     'wizard': {
         'cloud': 'cloud',
-        'fireball': 'fireball',
-        'bug': 'bug'
+        'weapon': 'fireball',
+        'enemy': 'bug',
+        'color': 'lightskyblue'
     },
     'kolyo': {
         'cloud': 'mountains',
-        'fireball': 'stone',
-        'bug': 'snake'
+        'weapon': 'stone',
+        'enemy': 'snake',
+        'color': 'rgb(81, 181, 199)'
     },
     'viki': {
-        'cloud': 'cloud-viki',
-        'fireball': 'stone',
-        'bug': 'frog'
+        'cloud': 'cat',
+        'weapon': 'stone',
+        'enemy': 'frog',
+        'color': 'rgb(182, 98, 182)'
     },
     'tina': {
         'cloud': 'cake',
-        'fireball': 'kiwi',
-        'bug': 'burger'
+        'weapon': 'kiwi',
+        'enemy': 'burger',
+        'color': 'rgb(221, 210, 53)'
     },
     'pepi': {
         'cloud': 'jagermeister',
-        'fireball': 'cup',
-        'bug': 'pill'
+        'weapon': 'cup',
+        'enemy': 'pill',
+        'color': 'rgb(17, 0, 255)'
     }
 }
 
@@ -74,7 +79,7 @@ function gameAction(timestamp) {
     // Add bugs
     if (timestamp - scene.lastBugSpawn > game.bugSpawnInterval + 5000 * Math.random()) {
         const bug = document.createElement('div');
-        bug.classList.add(heroes[currentHero].bug);
+        bug.classList.add(heroes[currentHero].enemy);
         bug.x = gameArea.offsetWidth - 60;
         bug.style.left = bug.x + 'px';
         bug.style.top = (gameArea.offsetHeight - 60) * Math.random() + 'px';
@@ -83,10 +88,10 @@ function gameAction(timestamp) {
     }
 
     // Modify bug positions
-    const bugs = document.querySelectorAll(`.${heroes[currentHero].bug}`);
+    const bugs = document.querySelectorAll(`.${heroes[currentHero].enemy}`);
     bugs.forEach(b => {
         b.x -= game.speed * 4;
-        b.style.left = b.x + 'px';
+        b.style.left = (b.x - 45) + 'px';
         if (b.x + b.offsetWidth <= 0) {
             b.remove();
         }
@@ -114,7 +119,7 @@ function gameAction(timestamp) {
     });
 
     // Modify fireballs positions
-    const fireballs = document.querySelectorAll(`.${heroes[currentHero].fireball}`);
+    const fireballs = document.querySelectorAll(`.${heroes[currentHero].weapon}`);
     fireballs.forEach(f => {
         f.x += game.speed * game.fireballMultiplier;
         f.style.left = f.x + 'px';
@@ -171,7 +176,6 @@ function gameAction(timestamp) {
         })
     });
 
-
     // Apply movement
     wizard.style.left = player.x + 'px';
     wizard.style.top = player.y + 'px';
@@ -199,12 +203,12 @@ function isCollision(firstElement, secondElement) {
     const firstRect = firstElement.getBoundingClientRect();
     const secondRect = secondElement.getBoundingClientRect();
 
-    return !(firstRect.top > secondRect.bottom || firstRect.bottom < secondRect.top || firstRect.right < secondRect.left || firstRect.left * 1.1 > secondRect.right);
+    return !(firstRect.top > secondRect.bottom || firstRect.bottom < secondRect.top || firstRect.right < secondRect.left || firstRect.left > secondRect.right);
 }
 
 function addFireBall(player) {
     const fireball = document.createElement('div');
-    fireball.classList.add(heroes[currentHero].fireball);
+    fireball.classList.add(heroes[currentHero].weapon);
     fireball.style.top = (player.y + player.height / 3 - 5) + 'px';
     fireball.x = (player.x + player.width);
     fireball.style.left = fireball.x + 'px';
@@ -228,6 +232,7 @@ function onGameStart(e) {
     hero.style.top = player.y + 'px';
     hero.style.left = player.x + 'px';
     gameArea.appendChild(hero);
+    gameArea.style.backgroundColor = heroes[currentHero].color;
     player.width = hero.offsetWidth;
     player.height = hero.offsetHeight;
 

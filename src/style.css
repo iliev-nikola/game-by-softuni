@@ -18,7 +18,7 @@ body {
 .game-start {
     position: absolute;
     display: inline-flex;
-    left: 30%;
+    left: 34%;
     top: 220px;
 }
 
@@ -34,10 +34,10 @@ body {
 
 .game-start-kolyo {
     position: relative;
-    background-image: url('./images/kolyo.png');
+    background-image: url('./images/kolyo-main.png');
     background-size: cover;
-    width: 82px;
-    height: 105px;
+    width: 65px;
+    height: 100px;
     z-index: 100;
     left: 7%;
     cursor: pointer;
@@ -45,9 +45,9 @@ body {
 
 .game-start-viki {
     position: relative;
-    background-image: url('./images/viki.png');
+    background-image: url('./images/viki-main.png');
     background-size: cover;
-    width: 82px;
+    width: 60px;
     height: 110px;
     z-index: 100;
     left: 14%;
@@ -56,10 +56,10 @@ body {
 
 .game-start-tina {
     position: relative;
-    background-image: url('./images/Untitled.png');
+    background-image: url('./images/tina-main.png');
     background-size: cover;
-    width: 82px;
-    height: 105px;
+    width: 80px;
+    height: 110px;
     z-index: 100;
     left: 21%;
     cursor: pointer;
@@ -67,10 +67,10 @@ body {
 
 .game-start-pepi {
     position: relative;
-    background-image: url('./images/pepi.png');
+    background-image: url('./images/pepi-main.png');
     background-size: cover;
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 110px;
     z-index: 100;
     left: 28%;
     cursor: pointer;
@@ -141,7 +141,7 @@ body {
     border-color: black;
 }
 
-/* heroes */
+/* HEROES */
 .wizard {
     z-index: 100;
     position: absolute;
@@ -156,9 +156,9 @@ body {
 .kolyo {
     z-index: 100;
     position: absolute;
-    width: 82px;
+    width: 65px;
     height: 100px;
-    background-image: url(./images/kolyo.png);
+    background-image: url(./images/kolyo-main.png);
     background-size: cover;
     rotate: inherit 50;
     cursor: none;
@@ -167,9 +167,9 @@ body {
 .viki {
     z-index: 100;
     position: absolute;
-    width: 82px;
+    width: 60px;
     height: 100px;
-    background-image: url(./images/viki.png);
+    background-image: url(./images/viki-main.png);
     background-size: cover;
     rotate: inherit 50;
     cursor: none;
@@ -178,9 +178,9 @@ body {
 .tina {
     z-index: 100;
     position: absolute;
-    width: 82px;
-    height: 100px;
-    background-image: url(./images/tina.png);
+    width: 80px;
+    height: 110px;
+    background-image: url(./images/tina-main.png);
     background-size: cover;
     rotate: inherit 50;
     cursor: none;
@@ -189,9 +189,9 @@ body {
 .pepi {
     z-index: 100;
     position: absolute;
-    width: 100px;
-    height: 100px;
-    background-image: url(./images/pepi.png);
+    width: 70px;
+    height: 110px;
+    background-image: url(./images/pepi-main.png);
     background-size: cover;
     rotate: inherit 50;
     cursor: none;
@@ -202,7 +202,7 @@ body {
     background-size: cover;
 }
 
-/* fireballs */
+/* WEAPONS */
 .fireball {
     position: absolute;
     width: 40px;
@@ -221,21 +221,21 @@ body {
 
 .kiwi {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 20px;
     background-image: url(./images/kiwi.png);
     background-size: cover;
 }
 
 .cup {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     background-image: url(./images/cup.png);
     background-size: cover;
 }
 
-/* clouds */
+/* CLOUDS */
 .cloud {
     position: absolute;
     width: 200px;
@@ -256,32 +256,32 @@ body {
 
 .mountains {
     position: absolute;
-    width: 290px;
-    height: 200px;
+    width: 200px;
+    height: 150px;
     background-image: url(./images/mountain-peak-logo-md.png);
     background-size: cover;
     cursor: none;
 }
 
-.cloud-viki {
+.cat {
     position: absolute;
-    width: 290px;
-    height: 200px;
-    background-image: url(./images/cloud-viki.png);
+    width: 200px;
+    height: 130px;
+    background-image: url(./images/cat.png);
     background-size: cover;
     cursor: none;
 }
 
 .jagermeister {
     position: absolute;
-    width: 290px;
-    height: 290px;
+    width: 200px;
+    height: 200px;
     background-image: url(./images/jagermeister.png);
     background-size: cover;
     cursor: none;
 }
 
-/* bugs */
+/* ENEMIES */
 .bug {
     position: absolute;
     width: 60px;
@@ -293,8 +293,8 @@ body {
 
 .snake {
     position: absolute;
-    width: 170px;
-    height: 40px;
+    width: 120px;
+    height: 30px;
     background-image: url(./images/snake.png);
     background-size: cover;
     cursor: none;
@@ -311,7 +311,7 @@ body {
 
 .burger {
     position: absolute;
-    width: 60px;
+    width: 80px;
     height: 60px;
     background-image: url(./images/burger.png);
     background-size: cover;
@@ -320,8 +320,8 @@ body {
 
 .pill {
     position: absolute;
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     background-image: url(./images/pill.png);
     background-size: cover;
     cursor: none;
