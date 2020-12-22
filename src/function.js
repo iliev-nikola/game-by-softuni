@@ -1,4 +1,3 @@
-// TODO: kolyo's snakes doesn't appear. Only Tina have clouds
 const gameStart = document.querySelector('.game-start');
 const gameArea = document.querySelector('.game-area');
 const gameOver = document.querySelector('.game-over');
@@ -41,31 +40,31 @@ const heroes = {
         'cloud': 'cloud',
         'weapon': 'fireball',
         'enemy': 'bug',
-        'color': 'lightskyblue'
+        'color': '#086faf;'
     },
     'kolyo': {
         'cloud': 'mountains',
         'weapon': 'stone',
         'enemy': 'snake',
-        'color': 'rgb(81, 181, 199)'
+        'color': '#3835ffb0'
     },
     'viki': {
         'cloud': 'cat',
         'weapon': 'stone',
         'enemy': 'frog',
-        'color': 'rgb(182, 98, 182)'
+        'color': '#7000d69e'
     },
     'tina': {
         'cloud': 'cake',
         'weapon': 'kiwi',
         'enemy': 'burger',
-        'color': 'rgb(221, 210, 53)'
+        'color': '#8c006e7d'
     },
     'pepi': {
         'cloud': 'jagermeister',
         'weapon': 'cup',
         'enemy': 'pill',
-        'color': 'rgb(17, 0, 255)'
+        'color': '#327d3cd1'
     }
 }
 
@@ -91,7 +90,7 @@ function gameAction(timestamp) {
     const bugs = document.querySelectorAll(`.${heroes[currentHero].enemy}`);
     bugs.forEach(b => {
         b.x -= game.speed * 4;
-        b.style.left = (b.x - 45) + 'px';
+        b.style.left = (b.x - 52) + 'px';
         if (b.x + b.offsetWidth <= 0) {
             b.remove();
         }
@@ -154,11 +153,16 @@ function gameAction(timestamp) {
     }
     // space
     if (keys.Space && timestamp - player.lastTimeFiredFireball > game.fireInterval) {
-        // wizard.classList.add('wizard-fire');
+        if (currentHero === 'wizard') {
+            wizard.classList.add('wizard-fire');
+        }
+
         addFireBall(player);
         player.lastTimeFiredFireball = timestamp;
     } else {
-        // wizard.classList.remove('wizard-fire');
+        if (currentHero === 'wizard') {
+            wizard.classList.remove('wizard-fire');
+        }
     }
 
     // Collision detection
@@ -224,9 +228,10 @@ function onKeyUp(e) {
 }
 
 function onGameStart(e) {
-    currentHero = e.target.title;
+    currentHero = e.target.title.toLowerCase();
     gameStart.style.display = 'none';
     document.querySelector('.choose-hero').classList.add('hide');
+    document.querySelector('.title').style.display = 'none';
     const hero = document.createElement('div');
     hero.classList.add(currentHero);
     hero.style.top = player.y + 'px';
