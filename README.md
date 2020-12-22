@@ -1,1 +1,1 @@
-# game-by-softuni
+# kill-the-enemies side-scrolling game
