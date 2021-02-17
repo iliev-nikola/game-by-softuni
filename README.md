@@ -1,1 +1,2 @@
-# kill-the-enemies side-scrolling game
+# Kill The Enemies
+## A side scrolling game
