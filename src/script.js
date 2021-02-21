@@ -232,6 +232,7 @@ function onGameStart(e) {
     gameStart.style.display = 'none';
     document.querySelector('.choose-hero').classList.add('hide');
     document.querySelector('.title').style.display = 'none';
+    document.querySelector('.game-score').style.display = 'block';
     const hero = document.createElement('div');
     hero.classList.add(currentHero);
     hero.style.top = player.y + 'px';
