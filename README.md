@@ -1,5 +1,6 @@
 # Kill The Enemies
 ## A side scrolling game
+- Languages: Vanilla JS, HTML & CSS
 - Link to github pages: https://iliev-nikola.github.io/kill-the-enemies/
 - Screenshots:
 [![initial.png](https://i.postimg.cc/kg6G1Xbd/initial.png)](https://postimg.cc/QFDjVDm6)
