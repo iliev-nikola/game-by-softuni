@@ -104,11 +104,12 @@ body {
 
 .choose-hero {
   position: absolute;
-  width: 30%;
-  left: 36%;
-  top: 29%;
+  top: 25%;
+  width: 100%;
+  text-align: center;
   z-index: 1;
   font-size: 40px;
+  font-family: American Typewriter;
 }
 
 .game-score {
